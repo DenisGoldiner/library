@@ -17,7 +17,14 @@ class View
    // function generate($content_view, $template_view, $data = null)
     function generate($content_view, $data = null)
     {
+        if(is_array($data)) {
 
-        include_once __DIR__.'\..\views\\'.$content_view;
+            // преобразуем элементы массива в переменные
+            extract($data);
+        }
+
+        include_once __DIR__.'/../template/header_template_view.php';
+        include_once __DIR__.'/../views/'.$content_view;
+        include_once __DIR__.'/../template/footer_template_view.php';
     }
 }

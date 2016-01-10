@@ -16,7 +16,7 @@ class Collection
         }
         else {
             if (isset($this->items[$key])) {
-                throw new KeyHasUseException("Key $key already in use.");
+                throw new Exception("Key $key already in use.");
             }
             else {
                 $this->items[$key] = $obj;
@@ -29,7 +29,7 @@ class Collection
             unset($this->items[$key]);
     }
         else {
-            throw new KeyInvalidException("Invalid key $key.");
+            throw new Exception("Invalid key $key.");
         }
     }
 
@@ -38,7 +38,7 @@ class Collection
             return $this->items[$key];
         }
         else {
-            throw new KeyInvalidException("Invalid key $key.");
+            throw new Exception("Invalid key $key.");
         }
     }
 

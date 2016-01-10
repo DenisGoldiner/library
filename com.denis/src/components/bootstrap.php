@@ -7,15 +7,15 @@
  */
 
 require_once $srcDir.'/components/Router.php';
-require_once $srcDir .'/components/Registry.php';
+require_once $srcDir.'/components/Registry.php';
 require_once $srcDir.'/components/DBConnector.php';
+require_once $srcDir.'/components/Collection.php';
 
-require_once $srcDir . 'core/Controller.php';
-require_once $srcDir.'controllers/bookshelf.php';
+require_once $srcDir.'core/Controller.php';
+require_once $srcDir.'core/View.php';
+//require_once $srcDir.'core/Model.php';
 
 require_once $srcDir . 'models/bookshelf_model.php';
-
-require_once $srcDir.'core/View.php';
 
 
 $router = new Router();
