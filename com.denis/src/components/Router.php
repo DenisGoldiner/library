@@ -78,7 +78,8 @@ class Router
 
         // Файл доступен?
         if (is_readable($file) == false) {
-            require_once('../views/404_view.php');
+            //require_once('../views/404_view.php');
+            include(__DIR__.'/../views/404_view.php');
             die;
             //die ('404 Not Found');
         }
@@ -92,7 +93,8 @@ class Router
 
         // Действие доступно?
         if (is_callable(array($controller, $action)) == false) {
-            require_once('../views/404_view.php');
+            //require_once('../views/404_view.php');
+            include(__DIR__.'/../views/404_view.php');
             die;
             //die ('404 Not Found');
         }

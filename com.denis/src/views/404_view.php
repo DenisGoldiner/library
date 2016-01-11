@@ -5,12 +5,8 @@
     <title>Фон</title>
     <style>
         body {
-            background: #c7b39b url(<?=WEB_PATH?>template/images/404.jpg); /* Цвет фона и путь к файлу */
-            color: #fff; /* Цвет текста */
+            background: #fff url(<?=WEB_PATH?>template/images/404.jpg) no-repeat center 125px; /* Цвет фона и путь к файлу */
         }
     </style>
 </head>
-<body>
-<p>...</p>
-</body>
 </html>

@@ -3,7 +3,7 @@
     Welcome to uor library, if you still don't have our library card,
     you can create it right now.
 </p>
-<form action="/com.denis/src/controllers/main.php" method="post">
+<form action="<?=WEB_PATH?>controllers/reg.php" method="post">
     <p><i>Please, fill the form to continue, required is marked by </i><em>*</em></p>
     <fieldset>
         <legend>Contact information</legend>
@@ -14,5 +14,5 @@
         <label for="email">Email <em>*</em></label>
         <input id="email"><br>
     </fieldset>
-    <p><input type="submit" value="Submit information"></p>
+    <p><input type="submit" id="submit" value="Submit information"></p>
 </form>
