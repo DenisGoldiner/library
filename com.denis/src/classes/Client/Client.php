@@ -8,25 +8,26 @@
  */
 class Client
 {
-    private $clientID;
-    private $clientData;
+    private $clientName;
+    private $clientSurname;
     private $clientEmail;
     private $clientPassword;
 
     /**
      * Client constructor.
-     * @param $clientID
-     * @param $clientData
-     * @param $clientEmail
+     * @param $clientName
+     * @param $clientSurname
      * @param $clientPassword
+     * @param $clientEmail
      */
-    public function __construct(ClientID $clientID, ClientData $clientData, $clientEmail, $clientPassword)
+    public function __construct($clientName, $clientSurname, $clientEmail, $clientPassword)
     {
-        $this->clientID = $clientID;
-        $this->clientData = $clientData;
+        $this->clientName = $clientName;
+        $this->clientSurname = $clientSurname;
+        $this->clientPassword = $clientPassword;
         $this->clientEmail = $clientEmail;
-        $this->clientParole = $clientPassword;
     }
+
 
     public static function checkClientName($clientName){
         $result = false;

@@ -16,6 +16,7 @@ require_once $srcDir.'core/View.php';
 //require_once $srcDir.'core/Model.php';
 
 require_once $srcDir . 'models/bookshelf_model.php';
+require_once $srcDir . 'models/registration_model.php';
 
 //подключение семейства классов для работы с клиентом
 require_once $srcDir.'classes/Client/client/clientData/clientInfo/clientName/ClientFirstName.php';

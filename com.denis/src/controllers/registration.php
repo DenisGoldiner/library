@@ -21,7 +21,7 @@ class Controller_Registration extends Controller {
 
         // Переменные для формы
         $name = '';
-        $firstName = '';
+        $surname = '';
         $email = '';
         $password = '';
 		
@@ -33,7 +33,7 @@ class Controller_Registration extends Controller {
             // Получаем данные из формы
             $name = $_POST['name'];
             $email = $_POST['email'];
-            $firstName = $_POST['firstName'];
+            $surname = $_POST['surname'];
 			$password = $_POST['password'];
 
             if(Client::checkClientName($name)){
@@ -43,10 +43,10 @@ class Controller_Registration extends Controller {
 									    letters and first letter should be capital');
 			}
 			
-			if(Client::checkClientFirstName($firstName)){
-                echo $firstName.'<br/>';
+			if(Client::checkClientFirstName($surname)){
+                echo $surname.'<br/>';
             } else{
-				array_push($errors, ':: value "FirstName" is incorrect you can use only a-z<br/>
+				array_push($errors, ':: value "Surname" is incorrect you can use only a-z<br/>
 									    letters and first letter should be capital');				
 			}
 
@@ -76,10 +76,16 @@ class Controller_Registration extends Controller {
 
         }
 
+       // require_once __DIR__.'/../models/registration_model.php';      //???????
+        if(registration_model::checkClientExistence($email)){
+            echo "You can not register on this email";
+            die;
+        }
+
         $args = array();
         $args['errors'] = $errors;
         $args['name'] = $name;
-        $args['firstName'] = $firstName;
+        $args['surname'] = $surname;
         $args['email'] = $email;
         $args['password'] = $password;
 

@@ -10,7 +10,8 @@ class DBConnector
 {
 
     public static function getConnection(){
-        $paramsPath = WEB_PATH.'/config/db_params.php';
+        //$paramsPath = WEB_PATH.'config/db_params.php';
+        $paramsPath = __DIR__.'/../config/db_params.php';
         $params = include_once($paramsPath);
 
         $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";

@@ -7,12 +7,12 @@
         var errors = "";
 
         var name = form.name.value;
-        var firstName = form.firstName.value;
+        var surname = form.surname.value;
         var email = form.email.value;
         var password = form.password.value;
 
         var nameMask = /^[A-Z][a-z]*$/;
-        var firstNameMask = /^[A-Z][a-z]*$/;
+        var surnameMask = /^[A-Z][a-z]*$/;
         var emailMask = /^(?:[a-zA-Z][a-zA-Z0-9_]{1,})@(?:[a-z]{2,})\.(?:[a-z]{2,})$/;
         var passwordMask = /^[a-zA-Z0-9]*$/;
 
@@ -22,10 +22,10 @@
             form.name.focus();
         }
 
-        if(firstName.length < 2 || !firstNameMask.test(firstName)) {
+        if(surname.length < 2 || !surnameMask.test(surname)) {
             errorFlag = true;
             errors += "Error: Incorrect first name!\n";
-            form.firstName.focus();
+            form.surname.focus();
         }
 
         if(email.length < 2 || !emailMask.test(email)) {
@@ -67,8 +67,8 @@
         <legend>Contact information</legend>
         <label for="name">Name <em>*</em></label>
             <input id="name" name="name" value="<?php echo $data['name']?>"><br>
-        <label for="firstName">First name <em>*</em></label>
-            <input id="firstName" name="firstName" value="<?php echo $data['firstName']?>"><br>
+        <label for="surname">First name <em>*</em></label>
+            <input id="surname" name="surname" value="<?php echo $data['surname']?>"><br>
         <label for="email">Email <em>*</em></label>
             <input id="email" name="email" value="<?php echo $data['email']?>"><br>
 		<label for="password">Password <em>*</em></label>
