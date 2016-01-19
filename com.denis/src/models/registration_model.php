@@ -14,7 +14,7 @@ class registration_model
         $result = false;
 
         $dataBase = DBConnector::getConnection();
-        $querry = $dataBase->query("SELECT * from client WHERE client_email = 'Krit@gmail.com' ");
+        $querry = $dataBase->query("SELECT * from client WHERE client_email = {$email} ");
 
         if($querry != false){
             $result = true;
