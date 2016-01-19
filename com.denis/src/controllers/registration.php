@@ -16,7 +16,7 @@ class Controller_Registration extends Controller {
     {
         //var_dump($_POST);
 
-        define('WEB_PATH', '/com.denis/src/');                  //why again???
+        //define('WEB_PATH', '/com.denis/src/');                  //why again???
         require_once __DIR__.'/../classes/Client/Client.php';
 
         // Переменные для формы

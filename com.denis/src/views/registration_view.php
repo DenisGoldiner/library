@@ -56,7 +56,8 @@
     Welcome to uor library, if you still don't have our library card,
     you can create it right now.
 </p>
-<form action="<?=WEB_PATH?>controllers/reg.php" method="post" onsubmit="return checkForm(this);">
+<!--<form action="<?=WEB_PATH?>controllers/reg.php" method="post" onsubmit="return checkForm(this);">-->
+<form action="http://den.test.int/registration/actionRegister" method="post" onsubmit="return checkForm(this);">
     <p><i>Please, fill the form to continue, required is marked by </i><em>*</em></p>
 
     <?php if(!empty($data)) foreach($data['errors'] as $error):?>
