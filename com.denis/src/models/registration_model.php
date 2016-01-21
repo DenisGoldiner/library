@@ -30,10 +30,11 @@ class registration_model
 
         }
 */
+        /*
         var_dump($email);
         var_dump($querry);
         var_dump($result);
-
+*/
         return $result;
     }
 }
