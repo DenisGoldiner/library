@@ -10,6 +10,7 @@
         var surname = form.surname.value;
         var email = form.email.value;
         var password = form.password.value;
+        var card = form.card.value;
 
         var nameMask = /^[A-Z][a-z]*$/;
         var surnameMask = /^[A-Z][a-z]*$/;
@@ -39,7 +40,12 @@
             errors += "Error: Incorrect password!\n";
             form.password.focus();
         }
-
+/*
+        if(card != "true"){
+            errorFlag = true;
+            errors += "Error: choose card type!\n" + card;
+        }
+*/
         if(errorFlag){
             alert(errors);
             result = false
@@ -75,6 +81,37 @@
 		<label for="password">Password <em>*</em></label>
             <input id="password" name="password" value="<?php echo $data['password']?>"><br>
     </fieldset>
+    <fieldset>
+        <legend>Card type</legend>
+        <label for="green">
+            <input id="green" type="checkbox" name="card" value="green"> Green</label>
+        <label for="gold">
+            <input id="gold" type="checkbox" name="card" value="gold"> Gold</label>
+        <label for="platinum">
+            <input id="platinum" type="checkbox" name="card" value="platinum"> Platinum</label>
+    </fieldset>
+
+    <script type="text/javascript">
+        var handler = function ( event ){
+            event = event || window.event;
+            var target = event.target || event.srcElement;
+            if ( target.nodeType == 1 && target.nodeName.toLowerCase() == "input" && target.type == "checkbox" && target.checked ) {
+                var inputs = document.getElementsByTagName("input");
+                for ( var i = 0; inputs[i]; i++ ) {
+                    if ( inputs[i].type == "checkbox" && inputs[i] != target ) {
+                        inputs[i].checked = false;
+                    }
+                }
+            }
+        }
+        if (document.addEventListener){
+            document.addEventListener('click', handler, false);
+        } else if (document.attachEvent){
+            document.attachEvent('onclick', handler);
+        }
+    </script>
+
+
     <p><input type="submit" id="submit" name="submit" value="Submit information"></p>
 </form>
 

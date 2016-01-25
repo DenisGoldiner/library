@@ -24,7 +24,8 @@ class Controller_Registration extends Controller {
         $surname = '';
         $email = '';
         $password = '';
-		
+        $card = '';
+
 		$errors = array();
 
         // Обработка формы
@@ -51,7 +52,13 @@ class Controller_Registration extends Controller {
 			}
 
             if(Client::checkClientEmail($email)){
-                echo $email.'<br/>';
+
+                if(!registration_model::checkClientExistence($email)){
+                    echo $email.'<br/>';
+                } else{
+                    array_push($errors, ':: You can not register on this email');
+                }
+
             } else{
 				array_push($errors, ':: value "Email" is incorrect it should be in form
 									    someText@mail.country');				
@@ -63,23 +70,19 @@ class Controller_Registration extends Controller {
 				array_push($errors, ':: value "Password" is incorrect you can use only a-z<br/>
 									    letters, 0-9 numbers and it\'s length should be more then 5');				
 			}
-			
+
+            if(!empty($_POST['card'])){
+                $card = $_POST['card'];
+                echo $card.'<br/>';
+            } else{
+                array_push($errors, ':: chose card type');
+            }
+
+
 			if(empty($errors)){
-                //array_push($errors, 'Please, fill the form to continue, required is marked by <em>*</em>');
-                /*
-				echo '<br>Error:<br/>';
-				foreach($errors as $error){
-					echo $error.'<br/>';					
-				}
-*/
+                registration_model::registerClient($name, $surname, $email, $password, $card);
 			}
 
-        }
-
-       // require_once __DIR__.'/../models/registration_model.php';      //???????
-        if(registration_model::checkClientExistence($email)){
-            echo "You can not register on this email";
-            die;
         }
 
         $args = array();
